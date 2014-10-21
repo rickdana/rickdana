@@ -1,0 +1,20 @@
+<ion-view title="Home">
+  <ion-nav-buttons class="bar-calm" side="left">
+    <button menu-toggle="left" class="button button-icon icon ion-navicon-round"></button>
+  </ion-nav-buttons>
+  <ion-content class="has-header">
+    <ion-refresher></ion-refresher>
+     <div class="list" on-refresh="onRefresh()">
+        <a ng-repeat="commerce in commerces" href="#/app/playlists/{{commerce.id}}" class="item item-thumbnail-left">
+          <img src="http://lorempicsum.com/futurama/100/100/2" alt="">
+          <h2>{{ commerce.nom }}</h2>
+          <h4>{{ commerce.categorie }}</h4>
+          <h4 class="badge badge-assertive">{{commerce.note}}</h4>
+          <h4>{{commerce.desc}}</h4>
+          <h5 class="item-note">{{commerce.adresse}}</h5>
+        </a>
+        <br>
+      </div>
+  </ion-content>
+</ion-view>
+
