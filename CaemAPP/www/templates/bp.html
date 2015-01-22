@@ -1,0 +1,14 @@
+<ion-view title="Bons Plans">
+  <ion-content class="has-header">
+    <div class="list">
+            <a ng-repeat="bp in bonplan" class="item item-thumbnail-left" ng-click="bonPlan(bp.idbonplan)">
+                 <img src="http://lorempicsum.com/futurama/100/100/2" alt="">
+                <h2>{{bp.commerce_idcommerce.enseigne}}</h2>
+                <h3>{{bp.titreBp}}</h3>
+                <h4>{{ bp.contenuBp | truncate : 45 :'…' }}</h4>
+            </a>
+             <br>
+    </div>
+  </ion-content>
+</ion-view>
+

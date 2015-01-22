@@ -1,0 +1,34 @@
+<ion-view title="Quoi de neufs !">
+  <ion-content class="has-header">
+         <ion-refresher
+                pulling-text="Pull to refresh..."
+                on-refresh="getNews()">
+       </ion-refresher>
+         <div class="list">
+
+         <!-- Fiche d'une information à la une -->
+                  <div class="list card" ng-repeat = "new in news">
+
+                          <div class="item item-avatar">
+                                <img src="img/logo_caem_200.jpg">
+                                <h2>CAEM</h2>
+                                <p>{{new.dateEmission}}</p>
+                          </div>
+
+                          <div class="item item-body">
+                                <img class="full-image" src="http://lorempicsum.com/futurama/320/300/4">
+                                <p>
+                                  {{new.contenu}}
+                                </p>
+                          </div>
+
+                          <div class="item tabs tabs-secondary tabs-icon-left">
+                                <a class="tab-item" href="#">
+                                    <i class="icon ion-share"></i>
+                                    Partager
+                                </a>
+                        </div>
+                  </div>
+          </div>
+  </ion-content>
+</ion-view>

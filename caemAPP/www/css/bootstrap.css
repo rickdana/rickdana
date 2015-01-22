@@ -12,7 +12,7 @@ html {
 }
 body {
   margin: 0;
-  overflow-x:hidden; 
+  overflow-x:hidden;
 }
 article,
 aside,
@@ -46,6 +46,7 @@ template {
 }
 a {
   background: transparent;
+  text-decoration: none;
 }
 a:active,
 a:hover {
@@ -1400,7 +1401,7 @@ pre code {
   margin-left: auto;
   background-color: #C4C7C8;
   border-radius: 10px;
-  
+
 }
 @media (min-width: 768px) {
   .container {
@@ -6245,7 +6246,7 @@ button.close {
 .container-fluid{
   padding-top:50px;
   padding-bottom:50px;
-   
+
 }
 .listing_bloc, listing_bloc2{
    float:left;
@@ -6273,7 +6274,7 @@ button.close {
   line-height: 60px;
   text-align: center;
   overflow: hidden;
-  *zoom: 1; 
+  *zoom: 1;
 }
 .home{
     display: block;
@@ -6307,7 +6308,7 @@ button.close {
   .bar .active {
     border-top: 3px solid #11a7ab; }
   .bar i {
-    margin-top: 15px; 
+    margin-top: 15px;
   }
 }
 .baniere{
@@ -6325,7 +6326,7 @@ button.close {
   border-bottom-right-radius: 10px;
 }
 .map-conteneur div:first-child{
-  height: 40px; 
+  height: 40px;
   padding-top: 10px;
   text-align: center;
   background-color: #FFFFFF;

@@ -1,29 +1,29 @@
-<ion-view title="{{commerces.nom}}">
- <ion-tabs class="tabs-icon-top tabs-calm">
-    <ion-tab title="Accueil"
-        icon-on="ion-ios7-home" 
-        icon-off="ion-ios7-home-outline" 
+<ion-view  ng-repeat="c in com" >
+ <ion-tabs class="tabs-icon-top tabs-assertive">
+    <ion-tab title="{{c.enseigne}}"
+        icon-on="ion-ios7-home"
+        icon-off="ion-ios7-home-outline"
     >
-      <ion-content class="has-header">
+    <ion-content class="has-header" >
   		<!-- Contenu de l'onglet 1. ici se trouve la page personalisée de chaque commerces-->
       	<div>
-      		<img src="http://lorempicsum.com/futurama/350/200/1" class="img-responsive" alt="Responsive image">
+      		<img ng-src="{{c.icone}}" class="img-responsive" alt="Responsive image">
       	</div>
       	<div class="list-inset">
       		<div class="button-bar">
-           		<a class="button"><i class="icon ion-ios7-telephone"></i><h6>Contact</h6></a>
-            	<a class="button"><i class="icon ion-edit"></i><h6>Avis</h6></a>
+           		<a class="button" ng-click="showAlert(c.tel_fixe)"><i class="icon ion-ios7-telephone"></i><h6>Tel</h6></a>
+            	<a class="button" ><i class="icon ion-edit"></i><h6>Avis</h6></a>
             	<a class="button"><i class="icon ion-navigate"></i><h6>Itinéraire</h6></a>
             	<a class="button"><i class="icon ion-ios7-star-outline"></i><h6>Favoris</h6></a>
             </div>
       	</div>
-        <div class="map">
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-          proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <div class="list-inset map" >
+           <ui-gmap-google-map center="map.center" zoom="map.zoom" draggable="true" options="options" >
+                <ui-gmap-marker idkey="0" coords ="marker.coords">
+                </ui-gmap-marker>
+          </ui-gmap-google-map>
+            <p>{{c.rue}} </p>
+            </div>
         </div>
       	<div class="list-inset">
       		<ion-list >
@@ -31,34 +31,45 @@
         				Itinéraire
                 <i class="icon ion-navigate"></i>
  			       </ion-item>
- 			       <ion-item class="item-icon-right">
-    			     	Galerie (Nbre de photos)       
-                <i class="icon ion-images"></i>
+ 			       <ion-item class="item-icon-right" ng-click="galerie()">
+    			     	Galerie
+                       <i class="icon ion-images"></i>
  			       </ion-item>
-             <ion-item class="item-icon-right">
-                Conseils de l'expert(nbre de conseils)       
+             <ion-item class="item-icon-right" href="#/app/commerce/:commerceId/conseils" ng-click="getConseil()">
+                Conseils de l'expert
                 <i class="icon ion-help-circled"></i>
              </ion-item>
- 			       <ion-item class="item-icon-right">
-    				    Avis (nbre d'avis)
-                <i class="icon ion-edit"></i>
- 			       </ion-item>
-             <ion-item class="item-icon-right">
+ 	       <ion-item class="item-icon-right" ng-click ="loadAvis()" href="#/app/commerce/:commerceId/avis">
+    				Avis
+                      <i class="icon ion-edit"></i>
+ 		 </ion-item>
+             <ion-item class="item-icon-right" href="#/app/commerce/:commerceId/plusInfos" ng-click="more()">
                 Plus d'informations
                 <i class="icon ion-information-circled"></i>
              </ion-item>
 			     </ion-list>
       	</div>
-
+      </ion-content>
     </ion-tab>
-    <ion-tab title="Bons Plans" 
-    icon-on="ion-ios7-star" 
-    icon-off="ion-ios7-star-outline" >
-    Hello tab 2!
-	</ion-tab>
+    <ion-tab title="Bons Plans"
+        icon-on="ion-ios7-star"
+        icon-off="ion-ios7-star-outline"
+        on-select="getComBP()" >
 
-  </ion-tabs>
+          <ion-content class="has-header">
+                <div class="list card" ng-repeat="b in comBP">
+                      <div class="item item-avatar">
+                          <img src="img/light_blue/letters_s-1.png" alt="">
+                          <h2>{{b.titreBp}}</h2>
+                          <p>{{b.dateEmissionBp}}</p>
+                      </div>
+                      <div class="item-body">
+                          <p >{{b.contenuBp}}</p>
+                      </div>
+                 </div>
+        </ion-content>
+    	  </ion-tab>
+    </ion-tabs>
 </ion-view>
 
 
-  

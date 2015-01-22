@@ -1,0 +1,26 @@
+<ion-view title="Commerces">
+  <ion-content class="has-header">
+        <ion-refresher></ion-refresher>
+         <div class="list" ng-show="listActive">
+              <a ng-repeat="commerce in comCat" ng-click="comId(commerce.idcommerce)" href="#/app/commerce/{{commerce.idcommerce}}" class="item item-thumbnail-left">
+                <img src="http://lorempicsum.com/futurama/100/100/2" alt="">
+                <h2>{{ commerce.enseigne }}</h2>
+                <h4>{{ commerce.categorie }}</h4>
+                <h4 class="badge badge-assertive">{{commerce.note}}</h4>
+                <h4>{{commerce.description}}</h4>
+                <h5 class="item-note">{{commerce.rue}}</h5>
+              </a>
+              <br>
+          </div>
+          <div ng-hide="listActive" class="searchMap">
+               <ui-gmap-google-map center="searchMap.center" zoom="searchMap.zoom" draggable="true" options="options" >
+                     <ui-gmap-marker idkey="1" coords ="searchMarker.coords">
+                    </ui-gmap-marker>
+               </ui-gmap-google-map>
+           </div>
+
+  </ion-content>
+    <ion-footer-bar align-title="left" class="bar-assertive">
+        <buton class="button button-outline pull-right" ng-click="mapOn()">{{messageMap}}</buton>
+    </ion-footer-bar>
+</ion-view>

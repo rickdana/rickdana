@@ -1,0 +1,50 @@
+<div class="modal">
+  <ion-header-bar>
+    <h1 class="title">sign up</h1>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closeLogon()">Fermé</button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+    <form ng-submit="doLogon()">
+      <div class="list">
+        <label class="item item-input">
+          <span class="input-label">Email</span>
+          <input type="email" ng-model="logonData.email">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Mot de passe </span>
+          <input type="password" ng-model="logonData.motdepasse">
+        </label>
+         <label class="item item-input">
+          <span class="input-label">Nom </span>
+          <input type="text" ng-model="logonData.nom">
+        </label>
+         <label class="item item-input">
+          <span class="input-label">Prenom </span>
+          <input type="text" ng-model="logonData.prenom">
+        </label>
+         <label class="item item-input">
+          <span class="input-label">Tel</span>
+          <input type="tel" ng-model="logonData.tel">
+        </label>
+         <label class="item item-input">
+          <span class="input-label">Adresse </span>
+          <input type="text" ng-model="logonData.adresse">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Ville </span>
+          <input type="text" ng-model="logonData.ville">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Code postal</span>
+          <input type="number" ng-model="logonData.codepostal">
+        </label>
+        <label class="item">
+          <button class="button button-block button-positive" type="submit">Log in</button>
+        </label>
+
+      </div>
+    </form>
+  </ion-content>
+</div>

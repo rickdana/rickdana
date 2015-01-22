@@ -1,0 +1,49 @@
+<div class="modal">
+  <ion-header-bar>
+    <h1 class="title">Profil</h1>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="goHome()">Fermé</button>
+    </div>
+</ion-header-bar>
+    <ion-content>
+    <p ><h3 class="profil">{{user.prenom}} {{user.nom}}</h3></p>
+    <small style="text-align: -webkit-center;">Modifier votre profil !</small>
+      <form ng-repeat="p in profil">
+      <div class="list">
+        <label class="item item-input">
+          <span class="input-label">Email</span>
+          <input type="email" ng-model="profilEdit.email" placeholder="{{p.email}}">
+        </label>
+         <label class="item item-input">
+          <span class="input-label">Nom </span>
+          <input type="text"  ng-model="profilEdit.nom" placeholder="{{p.nom}}">
+        </label>
+         <label class="item item-input">
+          <span class="input-label">Prenom </span>
+          <input type="text" ng-model="profilEdit.prenom" placeholder="{{p.prenom}}">
+        </label>
+         <label class="item item-input">
+          <span class="input-label">Tel</span>
+          <input type="tel" ng-model="profilEdit.tel" placeholder="{{p.tel}}">
+        </label>
+         <label class="item item-input">
+          <span class="input-label">Adresse </span>
+          <input type="text" ng-model="profilEdit.adresse" placeholder="{{p.adresse}}">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Ville </span>
+          <input type="text" ng-model="profilEdit.ville" placeholder="{{p.ville}}">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Code postal</span>
+          <input type="number" ng-model="profilEdit.codepostal" placeholder="{{p.codepostal}}">
+        </label>
+      </div>
+    </form>
+      <div class="btncenter">
+          <button class="button button-medium button-outline button-positive" ng-click="majProfil()">Confirmer</button>
+          <button class="button button-medium button-outline button-assertive" ng-click="goHome()">Annuler</button>
+        </div>
+
+   </ion-content>
+</div>

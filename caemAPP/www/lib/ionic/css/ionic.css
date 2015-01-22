@@ -6158,10 +6158,10 @@ a.button {
   .button-bar > .button:before, .button-bar > .button .icon:before {
     line-height: 44px; }
   .button-bar > .button:first-child {
-    border-radius: 8px 0px 0px 8px; }
+    border-radius: 2px 0px 0px 2px; }
   .button-bar > .button:last-child {
     border-right-width: 1px;
-    border-radius: 0px 8px 8px 0px; }
+    border-radius: 0px 2px 2px 0px; }
 
 /**
  * Animations

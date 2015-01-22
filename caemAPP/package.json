@@ -1,7 +1,7 @@
 {
   "name": "caemapp",
   "version": "1.0.0",
-  "description": "caemAPP: An Ionic project",
+  "description": "CaemAPP: An Ionic project",
   "dependencies": {
     "gulp": "^3.5.6",
     "gulp-sass": "^0.7.1",

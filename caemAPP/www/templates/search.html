@@ -1,8 +1,117 @@
-<ion-view title="Search">
-  <ion-nav-buttons side="left">
-    <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
-  </ion-nav-buttons>
+<ion-view title="Recherche">
+<div class="bar bar-subheader bar-assertive item-input-inset">
+    <label class="item-input-wrapper">
+        <i class="icon ion-ios7-search placeholder-icon"></i>
+        <input type="search" placeholder="Recherche">
+    </label>
+    <buton class="button button-clear">Go!</buton>
+</div>
   <ion-content class="has-header">
-    <h1>Search</h1>
+  <!-- Here start the content page -->
+    <div ng-show="listActive">
+
+    <div class="search">
+          <p class="textcentre">Catégories</p>
+          <div class="list">
+              <div class="item item-divider">a</div>
+                  <a ng-repeat="cat in categorie " ng-show="{{cat.libelecat | startsWith:'A'}}" class="item item-icon-right" href="#/app/catCommerce/{{cat.libelecat}}" ng-click="getCommerce(cat.libelecat)">
+                        <h3>{{cat.libelecat}}</h3>
+                    <i class="icon ion-ios7-arrow-forward"></i>
+                  </a>
+              <div class="item item-divider">b</div>
+                 <a ng-repeat="cat in categorie " ng-show="{{cat.libelecat | startsWith:'B'}}" class="item item-icon-right" href="#/app/catCommerce/{{cat.libelecat}}" ng-click="getCommerce(cat.libelecat)" >
+                        <h3>{{cat.libelecat}}</h3>
+                    <i class="icon ion-ios7-arrow-forward"></i>
+                  </a>
+               <div class="item item-divider">c</div>
+               <a ng-repeat="cat in categorie " ng-show="{{cat.libelecat | startsWith:'C'}}" class="item item-icon-right" href="#/app/catCommerce/{{cat.libelecat}}" ng-click="getCommerce(cat.libelecat)" >
+                        <h3>{{cat.libelecat}}</h3>
+                    <i class="icon ion-ios7-arrow-forward"></i>
+                  </a>
+                <div class="item item-divider">d</div>
+                <a ng-repeat="cat in categorie " ng-show="{{cat.libelecat | startsWith:'D'}}" class="item item-icon-right" href="#/app/catCommerce/{{cat.libelecat}}" ng-click="getCommerce(cat.libelecat)" >
+                        <h3>{{cat.libelecat}}</h3>
+                    <i class="icon ion-ios7-arrow-forward"></i>
+                  </a>
+                <div class="item item-divider">e</div>
+                <a ng-repeat="cat in categorie " ng-show="{{cat.libelecat | startsWith:'E'}}" class="item item-icon-right" href="#/app/catCommerce/{{cat.libelecat}}" ng-click="getCommerce(cat.libelecat)" >
+                        <h3>{{cat.libelecat}}</h3>
+                    <i class="icon ion-ios7-arrow-forward"></i>
+                  </a>
+                <div class="item item-divider">f</div>
+                <a ng-repeat="cat in categorie " ng-show="{{cat.libelecat | startsWith:'F'}}" class="item item-icon-right" href="#/app/catCommerce/{{cat.libelecat}}" ng-click="getCommerce(cat.libelecat)" >
+                        <h3>{{cat.libelecat}}</h3>
+                    <i class="icon ion-ios7-arrow-forward"></i>
+                  </a>
+                <div class="item item-divider">g</div>
+                <a ng-repeat="cat in categorie " ng-show="{{cat.libelecat | startsWith:'G'}}" class="item item-icon-right" href="#/app/catCommerce/{{cat.libelecat}}" ng-click="getCommerce(cat.libelecat)" >
+                        <h3>{{cat.libelecat}}</h3>
+                    <i class="icon ion-ios7-arrow-forward"></i>
+                  </a>
+                <div class="item item-divider">h</div>
+                <a ng-repeat="cat in categorie " ng-show="{{cat.libelecat | startsWith:'H'}}" class="item item-icon-right" href="#/app/catCommerce/{{cat.libelecat}}" ng-click="getCommerce(cat.libelecat)" >
+                        <h3>{{cat.libelecat}}</h3>
+                    <i class="icon ion-ios7-arrow-forward"></i>
+                  </a>
+                <div class="item item-divider">i</div>
+                <a ng-repeat="cat in categorie " ng-show="{{cat.libelecat | startsWith:'I'}}" class="item item-icon-right" href="#/app/catCommerce/{{cat.libelecat}}" ng-click="getCommerce(cat.libelecat)" >
+                        <h3>{{cat.libelecat}}</h3>
+                    <i class="icon ion-ios7-arrow-forward"></i>
+                  </a>
+                <div class="item item-divider">j</div>
+                <a ng-repeat="cat in categorie " ng-show="{{cat.libelecat | startsWith:'J'}}" class="item item-icon-right"href="#/app/catCommerce/{{cat.libelecat}}" ng-click="getCommerce(cat.libelecat)" >
+                        <h3>{{cat.libelecat}}</h3>
+                    <i class="icon ion-ios7-arrow-forward"></i>
+                  </a>
+                <div class="item item-divider">m</div>
+                   <a ng-repeat="cat in categorie " ng-show="{{cat.libelecat | startsWith:'M'}}" class="item item-icon-right" href="#/app/catCommerce/{{cat.libelecat}}" ng-click="getCommerce(cat.libelecat)" >
+                        <h3>{{cat.libelecat}}</h3>
+                    <i class="icon ion-ios7-arrow-forward"></i>
+                  </a>
+                <div class="item item-divider">o</div>
+                  <a ng-repeat="cat in categorie " ng-show="{{cat.libelecat | startsWith:'O'}}" class="item item-icon-right" href="#/app/catCommerce/{{cat.libelecat}}" ng-click="getCommerce(cat.libelecat)" >
+                        <h3>{{cat.libelecat}}</h3>
+                    <i class="icon ion-ios7-arrow-forward"></i>
+                  </a>
+                <div class="item item-divider">p</div>
+                    <a ng-repeat="cat in categorie " ng-show="{{cat.libelecat | startsWith:'P'}}" class="item item-icon-right" href="#/app/catCommerce/{{cat.libelecat}}" ng-click="getCommerce(cat.libelecat)" >
+                        <h3>{{cat.libelecat}}</h3>
+                    <i class="icon ion-ios7-arrow-forward"></i>
+                  </a>
+                <div class="item item-divider">r</div>
+                    <a ng-repeat="cat in categorie " ng-show="{{cat.libelecat | startsWith:'R'}}" class="item item-icon-right" href="#/app/catCommerce/{{cat.libelecat}}" ng-click="getCommerce(cat.libelecat)" >
+                        <h3>{{cat.libelecat}}</h3>
+                    <i class="icon ion-ios7-arrow-forward"></i>
+                  </a>
+                <div class="item item-divider">s</div>
+                    <a ng-repeat="cat in categorie " ng-show="{{cat.libelecat | startsWith:'S'}}" class="item item-icon-right" href="#/app/catCommerce/{{cat.libelecat}}" ng-click="getCommerce(cat.libelecat)" >
+                        <h3>{{cat.libelecat}}</h3>
+                    <i class="icon ion-ios7-arrow-forward"></i>
+                  </a>
+                <div class="item item-divider">t</div>
+                    <a ng-repeat="cat in categorie " ng-show="{{cat.libelecat | startsWith:'T'}}" class="item item-icon-right" href="#/app/catCommerce/{{cat.libelecat}}" ng-click="getCommerce(cat.libelecat)" >
+                        <h3>{{cat.libelecat}}</h3>
+                    <i class="icon ion-ios7-arrow-forward"></i>
+                  </a>
+                <div class="item item-divider">v</div>
+                  <a ng-repeat="cat in categorie " ng-show="{{cat.libelecat | startsWith:'V'}}" class="item item-icon-right" href="#/app/catCommerce/{{cat.libelecat}}" ng-click="getCommerce(cat.libelecat)" >
+                        <h3>{{cat.libelecat}}</h3>
+                    <i class="icon ion-ios7-arrow-forward"></i>
+                  </a>
+
+          </div>
+       </div>
+    </div>
+    <div ng-hide="listActive" class="searchMap">
+               <ui-gmap-google-map center="searchMap.center" zoom="searchMap.zoom" draggable="true" options="options" >
+                    <ui-gmap-marker idkey="0" coords ="tmp.coords">
+
+                </ui-gmap-marker>
+               </ui-gmap-google-map>
+      </div>
+
   </ion-content>
+    <ion-footer-bar align-title="left" class="bar-assertive">
+        <buton class="button button-outline pull-right" ng-click="mapOn()">{{messageMap}}</buton>
+    </ion-footer-bar>
 </ion-view>

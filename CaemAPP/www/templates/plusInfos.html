@@ -1,0 +1,32 @@
+<ion-view title="Informations">
+  <ion-content class="has-header">
+      <div class="card" ng-repeat="c1 in com1">
+          <div class="item item-text-wrap">
+                 <p>
+                      <p><span class ="titre">Enseigne :</span> {{c1.enseigne}}</p>
+                     <p><span class ="titre">Catégorie :</span> {{c1.categorie}}</p>
+                      <p><span class ="titre">Description : </span>{{c1.description}}</p>
+                      <p><span class ="titre">Adresse :</span>
+                           <ol class = "infolist">
+                             <li> rue : {{c1.rue}}</li>
+                             <li>Ville : {{c1.ville}}</li>
+                            <li>code postal : {{c1.codepostal}}</li>
+                           </ol>
+                        </p>
+                        <p><span class ="titre">Tel:</span>
+                              <ol class = "infolist">
+                                <li>fixe : {{c1.tel_fixe}}</li>
+                                <li>mobile : {{c1.tel_mobile}}</li>
+                              </ol>
+                        </p>
+                       <p> <span class ="titre">Fax :</span> {{c1.fax}}</p>
+                        <p><span class ="titre">Email :</span> {{c1.email}}</p>
+                        <p><span class ="titre">Site Internet :</span> {{c1.siteinternet}}</p>
+                        <p><span class ="titre">Horaire : </span>{{c1.horaire}}</p>
+                        <p><span class ="titre">Moyen de payement : </span>{{c1.moyenpayement }}</p>
+                 </p>
+          </div>
+      </div>
+  </ion-content>
+</ion-view>
+

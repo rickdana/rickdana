@@ -1,0 +1,18 @@
+<ion-view title="Conseils">
+  <ion-content class="has-header">
+        <ion-refresher
+                pulling-text="Pull to refresh..."
+                on-refresh="getConseil()">
+       </ion-refresher>
+      <div class="list card" ng-repeat="t in tips">
+        <div class="item item-avatar">
+            <img src="img/light_blue/letters_s-1.png" alt="">
+            <h2>{{t.titre}}</h2>
+            <p>{{t.dateEmission}}</p>
+        </div>
+        <div class="item-body">
+            <p >{{t.contenu_conseil}} </p>
+        </div>
+      </div>
+  </ion-content>
+</ion-view>

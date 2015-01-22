@@ -1,0 +1,46 @@
+<div class="modal">
+  <ion-header-bar class="bar-assertive">
+    <h1 class="title">Bon Plan</h1>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closeBonPlan()">Close</button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+       <div class="list card" ng-repeat="r in res">
+
+            <div class="item item-avatar">
+                    <img src="mcfly.jpg">
+                    <h2>{{r.commerce_idcommerce.enseigne}} </h2>
+                    <p>{{r.dateEmissionBp}}</p>
+            </div>
+
+            <div class="item item-body">
+
+                    <p>
+                         {{r.contenuBp}}
+                    </p>
+                    <p>
+                          <a href="#" class="subdued">1 Like</a>
+                          <a href="#" class="subdued">5 Comments</a>
+                    </p>
+            </div>
+
+            <div class="item tabs tabs-secondary tabs-icon-left">
+                  <a class="tab-item" href="#">
+                          <i class="icon ion-thumbsup"></i>
+                          Like
+                  </a>
+                  <a class="tab-item" href="#">
+                          <i class="icon ion-chatbox"></i>
+                          Comment
+                  </a>
+                  <a class="tab-item" href="#">
+                        <i class="icon ion-share"></i>
+                        Share
+                  </a>
+            </div>
+
+    </div>
+  </ion-content>
+</div>
+

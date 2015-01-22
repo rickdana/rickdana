@@ -1,0 +1,19 @@
+<ion-view title="Avis">
+  <ion-content class="has-header">
+      <ion-refresher
+                pulling-text="Pull to refresh..."
+                on-refresh="loadAvis()">
+       </ion-refresher>
+      <div class="list card" ng-repeat="avis in comAvis">
+        <div class="item item-avatar">
+            <img src="img/light_blue/letters_s-1.png" alt="">
+            <h2>{{avis.client_idclient.prenom}} {{avis.client_idclient.nom}}</h2>
+            <p>{{avis.dateEmissionAvis}}</p>
+        </div>
+        <div class="item-body">
+            <p >{{avis.contenuAvis}}
+            </p>
+        </div>
+      </div>
+  </ion-content>
+</ion-view>

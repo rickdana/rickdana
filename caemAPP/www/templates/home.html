@@ -1,19 +1,37 @@
-<ion-view title="Home">
-  <ion-nav-buttons class="bar-calm" side="left">
-    <button menu-toggle="left" class="button button-icon icon ion-navicon-round"></button>
-  </ion-nav-buttons>
-  <ion-content class="has-header">
-    <ion-refresher></ion-refresher>
-     <div class="list" on-refresh="onRefresh()">
-        <a ng-repeat="commerce in commerces" href="#/app/playlists/{{commerce.id}}" class="item item-thumbnail-left">
-          <img src="http://lorempicsum.com/futurama/100/100/2" alt="">
-          <h2>{{ commerce.nom }}</h2>
-          <h4>{{ commerce.categorie }}</h4>
-          <h4 class="badge badge-assertive">{{commerce.note}}</h4>
-          <h4>{{commerce.desc}}</h4>
-          <h5 class="item-note">{{commerce.adresse}}</h5>
-        </a>
-        <br>
+<ion-view title="home" >
+    <ion-nav-buttons  side="left"  >
+      <button menu-toggle="left" class="button button-icon icon ion-navicon-round"></button>
+    </ion-nav-buttons>
+    <ion-content>
+      <div class="ban">
+        <img src="img/logo_caem_200.jpg" alt="Logo Caem" class="img img-rounded img-responsive">
       </div>
-  </ion-content>
+      <div class="action">
+            <a href="#/app/search" ng-click="cat()" >
+                    <button  class="button button-block icon-right ion-ios7-search-strong button-assertive" ng-click="recherche()">
+                   Rechercher
+                  </button>
+            </a>
+            <a href="#/app/commerce" title="" ng-click="loadCommerce()">
+                    <button class="button button-block icon-right ion-ios7-cart button-assertive" >
+                    Commerces
+                  </button>
+            </a>
+            <a href="#/app/bonplan" title="" ng-click="Bp()">
+                  <button class="button button-block icon-right ion-chevron-right button-assertive">
+                      Bons Plans
+                  </button>
+            </a>
+            <a href="#/app/avis" title="">
+               <button class="button button-block icon-right ion-ios7-star button-assertive">
+                Mes Favoris
+              </button>
+            </a>
+            <a href="#/app/news"  title="" ng-click="getNews()">
+                <button class="button button-block icon-right ion-ios7-star button-assertive">
+                Quoi de neuf!
+                </button>
+             </a>
+      </div>
+   </ion-content>
 </ion-view>

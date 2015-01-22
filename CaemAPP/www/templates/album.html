@@ -1,0 +1,24 @@
+<div class="modal">
+  <ion-header-bar class="bar-assertive">
+    <h1 class="title">Galerie</h1>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closeGalerie()">Close</button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+           <ion-slide-box on-slide-changed="slideHasChanged($index)">
+                <ion-slide>
+                    <img src="http://lorempicsum.com/futurama/350/400/1">
+                </ion-slide>
+                <ion-slide>
+                    <img src="http://lorempicsum.com/futurama/350/400/2">
+                </ion-slide>
+                <ion-slide>
+                    <img src="http://lorempicsum.com/futurama/350/400/3">
+                </ion-slide>
+                 <ion-slide>
+                    <img src="http://lorempicsum.com/futurama/350/400/3">
+                </ion-slide>
+            </ion-slide-box>
+  </ion-content>
+
