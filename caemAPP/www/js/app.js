@@ -4,9 +4,9 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers','angular.filter','uiGmapgoogle-maps' ])
+angular.module('starter', ['ionic', 'starter.controllers','angular.filter','uiGmapgoogle-maps','angularMoment'])
 
-.run(function($ionicPlatform) {
+.run(function($ionicPlatform, amMoment) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -20,6 +20,7 @@ angular.module('starter', ['ionic', 'starter.controllers','angular.filter','uiGm
     var div = document.getElementById("map_canvas");
 
   });
+  amMoment.changeLocale('fr');
 
 })
 
@@ -44,6 +45,15 @@ angular.module('starter', ['ionic', 'starter.controllers','angular.filter','uiGm
       views: {
         'menuContent' :{
           templateUrl: "templates/search.html"
+
+        }
+      }
+    })
+    .state('app.favoris', {
+      url: "/favoris",
+      views: {
+        'menuContent' :{
+          templateUrl: "templates/favoris.html"
 
         }
       }

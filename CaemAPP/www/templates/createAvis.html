@@ -1,0 +1,33 @@
+<div class="modal">
+  <ion-header-bar>
+    <h1 class="title">Votre Avis !</h1>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closeAvisModal()">Fermé</button>
+    </div>
+  </ion-header-bar>
+  <ion-content ng-repeat="c in com">
+    <div class="list list-inset">
+      <div style = 'text-align : center;'>
+          <p>Votre avis sur : {{c.enseigne}}</p>
+      </div>
+       <p ng-show="erreur" style="color:#cc2311;"><small>Vous devez remplir tous les champs !</small></p>
+
+        <form ng-submit="laisserAvis(c.idcommerce)" method="get" accept-charset="utf-8">
+            <label class="item item-input">
+                  <span class="input-label">Titre* : </span>
+                  <input type="text" placeholder="Titre de votre avis" ng-model="avis.titre" >
+            </label>
+            <div class="text">
+                  <span class="input-label">Avis*:</span>
+                  <label class="item item-input">
+                        <textarea rows="8" cols="30" ng-model="avis.contenuAvis" >
+                        </textarea>
+                   </label>
+             </div>
+             <label class="item">
+                    <button  class="button button-outline button-small button-positive right" type="submit">commenter</button>
+              </label>
+        </form>
+</div>
+  </ion-content>
+</div>

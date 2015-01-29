@@ -1,0 +1,16 @@
+<ion-view title="Mes Favoris">
+  <ion-content class="has-header">
+        <ion-refresher> jjlkk</ion-refresher>
+         <div class="list" on-refresh="onRefresh()">
+              <a ng-repeat="fav in favoris"  ng-click="comId(commerce.idcommerce)" href="#/app/commerce/{{commerce.idcommerce}}" class="item item-thumbnail-left">
+                <img src="http://lorempicsum.com/futurama/100/100/2" alt="">
+                <h2>{{fav.idcommerce.enseigne}}</h2>
+                <h4>{{ fav.idcommerce.categorie }}</h4>
+                <h4 class="badge badge-assertive">{{fav.idcommce.note}}</h4>
+                <h4>{{fav.idcommerce.description}}</h4>
+                <h5 class="item-note">{{fav.idcommerce.rue}}</h5>
+              </a>
+              <br>
+          </div>
+  </ion-content>
+</ion-view>

@@ -12,9 +12,13 @@
       	<div class="list-inset">
       		<div class="button-bar">
            		<a class="button" ng-click="showAlert(c.tel_fixe)"><i class="icon ion-ios7-telephone"></i><h6>Tel</h6></a>
-            	<a class="button" ><i class="icon ion-edit"></i><h6>Avis</h6></a>
+            	<a class="button" ng-click="createAvis()" ><i class="icon ion-edit"></i><h6>Avis</h6></a>
             	<a class="button"><i class="icon ion-navigate"></i><h6>Itinéraire</h6></a>
-            	<a class="button"><i class="icon ion-ios7-star-outline"></i><h6>Favoris</h6></a>
+            	<a class="button" ng-click="addToFav(c.idcommerce,idclient)" ng-hide="isFavorie">
+                      <i class="icon ion-ios7-star" ></i>
+                      <h6>Favoris</h6>
+                  </a>
+
             </div>
       	</div>
         <div class="list-inset map" >

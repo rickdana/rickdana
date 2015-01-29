@@ -29,6 +29,7 @@
 .img {
   vertical-align: middle;
 }
+
 .img-responsive,
 .thumbnail > img,
 .thumbnail a > img,
@@ -71,9 +72,9 @@ action.a{
 }
 
 .ban{
-  margin-left: 66px;
-  margin-bottom: 52px;
-  margin-top: 15px;
+  text-align: -webkit-center;
+  margin-top: 15%;
+  margin-bottom: 15%;
 }
 .grid{
 	overflow-y: hidden;
@@ -112,6 +113,12 @@ action.a{
 .profil{
   text-align: -webkit-center;
   color: #ef473a;
+}
+.text{
+margin-top: 9%;
+}
+.right{
+  text-align: -webkit-center;
 }
 
 /*****************************************

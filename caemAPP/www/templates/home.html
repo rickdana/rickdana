@@ -4,7 +4,7 @@
     </ion-nav-buttons>
     <ion-content>
       <div class="ban">
-        <img src="img/logo_caem_200.jpg" alt="Logo Caem" class="img img-rounded img-responsive">
+        <img src="img/logo_caem_200.jpg" alt="Logo Caem" class="img img-rounded img-responsive" >
       </div>
       <div class="action">
             <a href="#/app/search" ng-click="cat()" >
@@ -12,7 +12,7 @@
                    Rechercher
                   </button>
             </a>
-            <a href="#/app/commerce" title="" ng-click="loadCommerce()">
+            <a href="#/app/commerce" title="" ng-click="loadCommerce()" nav-transition="android">
                     <button class="button button-block icon-right ion-ios7-cart button-assertive" >
                     Commerces
                   </button>
@@ -22,8 +22,8 @@
                       Bons Plans
                   </button>
             </a>
-            <a href="#/app/avis" title="">
-               <button class="button button-block icon-right ion-ios7-star button-assertive">
+            <a href="#/app/favoris" title="">
+               <button ng-click = "getFav()"class="button button-block icon-right ion-ios7-star button-assertive">
                 Mes Favoris
               </button>
             </a>

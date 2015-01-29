@@ -1,5 +1,9 @@
 angular.module('starter.controllers', [])
 
+.constant('angularMomentConfig', {
+    preprocess: 'unix', // optional
+    timezone: 'Europe/PARIS' // optional
+})
 .controller('AppCtrl', function($rootScope ,$scope, $ionicModal, $timeout, $http, $ionicLoading,$ionicPopup,$location,$state) {
   /***************************************************************
   *
@@ -389,7 +393,23 @@ $scope.getCommerce = function(categorie){
                   console.log('error'+status);
             });
       };
+/***************************************************************
+  *
+  *                 Favoris client
+  *
+  * **************************************************************/
+$scope.getFav = function(){
+  var idclient = parseInt(localStorage.id);
+  $http.get('http://localhost:1337/favorie?client_idclient='+idclient).
+          success(function(data, status, headers, config) {
+                $scope.favoris = data ;
+                 console.log($scope.favoris);
+            }).
+          error(function(data, status, headers, config) {
+                    console.log($scope.favoris);
+            });
 
+}
 
 
 })
@@ -499,6 +519,9 @@ $scope.modal.remove();
   * **************************************************************/
 
 .controller('PlaylistCtrl', function($scope,$rootScope, $stateParams, $ionicModal, $timeout, $http,$ionicPopup, $ionicLoading) {
+
+   $scope.idclient = parseInt(localStorage.id);
+   console.log($scope.idclient);
   $scope.map = {center: {latitude: 47.508901, longitude: 6.797135 }, zoom: 16 };
   $scope.options = {scrollwheel: false};
   $scope.marker ={
@@ -508,7 +531,36 @@ $scope.modal.remove();
        }
   };
 
+/****************************************************************
+  *               addToFav( var idcommerce, var idclient)
+  *   Cette fonction permet d'ajouter à la liste de favorie
+  *   d'un client  le commerce dont l'id est passé en params
+  *
+  *
+  * **************************************************************/
+  $scope.addToFav = function(idcommerce, idclient){
+    var fav = {};
+    fav.idcommerce = idcommerce;
+    fav.client_idclient = idclient;
+    console.log(fav);
+     var req = {
+              method:'POST',
+              url:'http://localhost:1337/favorie/createFavorie',
+              headers:{
+                token: $rootScope.token,
+              },
+             data:fav
+            };
+            $http(req).success(function(data, status, headers, config){
 
+            }).error(function(data, status, headers, config){
+              $scope.loginAlert(data);
+            });
+
+
+  }
+
+  /*****************************************************************************************************************/
   // Number popup
   $scope.showAlert = function(num) {
      var alertPopup = $ionicPopup.alert({
@@ -520,7 +572,7 @@ $scope.modal.remove();
      });
    };
 
-  var id = $rootScope.id
+  var id = $rootScope.id;
   console.log("reference :"+id);
   $http.get('http://localhost:1337/commerce?idcommerce='+id).
           success(function(data, status, headers, config) {
@@ -536,6 +588,9 @@ $scope.modal.remove();
           error(function(data, status, headers, config) {
                   console.log('error'+status);
             });
+
+
+
           // La requette suivant recupere les bonplans du commerce
           $scope.getComBP = function(){
               $http.get('http://localhost:1337/bonplan/?commerce_idcommerce='+id).
@@ -605,6 +660,9 @@ $scope.modal.remove();
                             $ionicLoading.show({
                               template: 'Erreur de connexion !  Veuillez verifier votre connexion internet '
                             });
+                            $timeout(function() {
+                               $ionicLoading.hide(); //close the popup after 3 seconds for some reason
+                            }, 3000);
                             console.log('error'+status);
                       })
                     .finally(function() {
@@ -644,16 +702,81 @@ $scope.modal.remove();
     $ionicSlideBoxDelegate.next();
   }
 
-  /*Perform the login action when the user submits the login form
-  $scope.doLogin = function() {
-    console.log('Doing login', $scope.loginData);
+   /****************************************************************
+  *
+  *                             Rédiger un avis  Modal
+  *
+  * **************************************************************/
 
-    // Simulate a login delay. Remove this and replace with your login
-    // code if using a login system
-    $timeout(function() {
-      $scope.closeLogin();
-    }, 1000);
-  }*/
+
+$ionicModal.fromTemplateUrl('templates/createAvis.html', {
+            scope: $scope,
+            animation: 'slide-in-up'
+          }).then(function(modal) {
+            $scope.avisModal = modal;
+      });
+
+  // Permet de fermer le modal AvisModal
+  $scope.closeAvisModal = function() {
+    $scope.avisModal.hide();
+  };
+
+  // Ouvre le modal create Avis
+  $scope.createAvis = function() {
+    $scope.avis ={};
+    $scope.avisModal.show();
+  };
+  $scope.selectTabWithIndex = function(index) {
+    $ionicTabsDelegate.select(index);
+  };
+
+ /****************************************************************
+  *               LaisserAvis()
+  * Cette fontion est appelée lorsque un avis est créée.
+  * elle recupère les données du formulaire par un post les
+  * propulse au serveur pour être enrégistrer dans la BD
+  *
+  * **************************************************************/
+  $scope.laisserAvis = function(idcommerce){
+    if($scope.avis.titre && $scope.avis.titre){
+      $scope.erreur = false;
+      $scope.avis.client_idclient = localStorage.id;
+      $scope.avis.commerce_idcommerce = idcommerce;
+      console.log('Appercue de votre avis : ');
+      console.log('idclient : '+$scope.avis.client_idclient);
+      console.log('idcommerce: '+$scope.avis.commerce_idcommerce);
+      console.log('Titre : '+$scope.avis.titre);
+      console.log('Contenue : ['+$scope.avis.contenuAvis+' ]');
+      var req = {
+              method:'POST',
+              url:'http://localhost:1337/avis/createAvis',
+              headers:{
+                token: $rootScope.token,
+              },
+             data: $scope.avis
+            };
+            $http(req).success(function(data, status, headers, config){
+                console.log(data);
+                if(data.erreur == 'Session expire'){
+                  $scope.SessionExpire();
+                }
+                else{
+
+                    //$scope.loginAlert();
+                }
+                $scope.profilModal.hide();
+            }).error(function(data, status, headers, config){
+              var mess = 'Une erreur est survenue veuillez recommencer !'
+              $scope.loginAlert(data);
+            });
+      $scope.closeAvisModal();
+    }
+    else{
+      $scope.erreur = true;
+      console.log('Vous devez remplir tous les champs !');
+    }
+
+  }
 
 
 });

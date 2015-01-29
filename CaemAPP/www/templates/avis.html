@@ -8,7 +8,7 @@
         <div class="item item-avatar">
             <img src="img/light_blue/letters_s-1.png" alt="">
             <h2>{{avis.client_idclient.prenom}} {{avis.client_idclient.nom}}</h2>
-            <p>{{avis.dateEmissionAvis}}</p>
+            <p>{{avis.dateEmissionAvis |  amDateFormat:'LLL'}}</p>
         </div>
         <div class="item-body">
             <p >{{avis.contenuAvis}}
